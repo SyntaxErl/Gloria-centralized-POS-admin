@@ -1,0 +1,1 @@
+﻿// Sales trend chart placeholder
