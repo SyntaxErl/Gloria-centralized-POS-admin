@@ -1,2 +1,8 @@
-﻿// Admin: sales and performance reports
-// Uses get_sales_summary / get_sales_by_branch / get_sales_by_cashier / get_top_products RPCs
+﻿export default function Page() {
+  return (
+    <div>
+      <h1 className="text-2xl font-semibold text-slate-900">Sales Reports</h1>
+      <p className="mt-1 text-sm text-slate-500">Coming soon.</p>
+    </div>
+  );
+}

@@ -1,2 +1,8 @@
-﻿// Branch manager: inventory management + adjustment with reason logging (SRS 4)
-// Adjustments go through adjust_branch_inventory RPC, not a direct UPDATE (see API_CONTRACT.md)
+﻿export default function Page() {
+  return (
+    <div>
+      <h1 className="text-2xl font-semibold text-slate-900">Branch Inventory</h1>
+      <p className="mt-1 text-sm text-slate-500">Coming soon.</p>
+    </div>
+  );
+}

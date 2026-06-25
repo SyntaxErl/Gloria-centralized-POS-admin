@@ -1,1 +1,8 @@
-﻿// Admin: inventory monitoring across all branches (SRS 3)
+﻿export default function Page() {
+  return (
+    <div>
+      <h1 className="text-2xl font-semibold text-slate-900">Inventory Monitoring</h1>
+      <p className="mt-1 text-sm text-slate-500">Coming soon.</p>
+    </div>
+  );
+}

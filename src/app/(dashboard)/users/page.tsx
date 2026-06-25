@@ -1,2 +1,8 @@
-﻿// Admin: user management - managers and cashiers (SRS 3 - User management)
-// Creation goes through create_staff_user RPC, not a direct insert (see API_CONTRACT.md)
+﻿export default function Page() {
+  return (
+    <div>
+      <h1 className="text-2xl font-semibold text-slate-900">Users</h1>
+      <p className="mt-1 text-sm text-slate-500">Coming soon.</p>
+    </div>
+  );
+}

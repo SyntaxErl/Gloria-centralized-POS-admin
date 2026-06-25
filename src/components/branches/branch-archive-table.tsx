@@ -1,5 +1,3 @@
-﻿import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
 import {
   Table,
   TableHead,
@@ -8,7 +6,9 @@ import {
   TableHeaderCell,
   TableCell,
 } from "@/components/ui/table";
-import { ArchiveBranchButton } from "@/components/branches/archive-branch-button";
+import { Badge } from "@/components/ui/badge";
+import { RestoreBranchButton } from "@/components/branches/restore-branch-button";
+import { DeleteBranchButton } from "@/components/branches/delete-branch-button";
 
 type Branch = {
   id: string;
@@ -17,9 +17,9 @@ type Branch = {
   is_active: boolean;
 };
 
-export function BranchTable({ branches }: { branches: Branch[] }) {
+export function BranchArchiveTable({ branches }: { branches: Branch[] }) {
   if (branches.length === 0) {
-    return <p className="text-sm text-slate-500">No active branches.</p>;
+    return <p className="text-sm text-slate-500">No archived branches.</p>;
   }
 
   return (
@@ -42,17 +42,12 @@ export function BranchTable({ branches }: { branches: Branch[] }) {
               {branch.address ?? "—"}
             </TableCell>
             <TableCell>
-              <Badge variant="success">Active</Badge>
+              <Badge variant="neutral">Archived</Badge>
             </TableCell>
             <TableCell>
               <div className="flex flex-wrap items-center gap-2">
-                <Link
-                  href={`/branches/${branch.id}`}
-                  className="text-sm text-primary hover:underline"
-                >
-                  Edit
-                </Link>
-                <ArchiveBranchButton branchId={branch.id} branchName={branch.name} />
+                <RestoreBranchButton branchId={branch.id} />
+                <DeleteBranchButton branchId={branch.id} branchName={branch.name} />
               </div>
             </TableCell>
           </TableRow>

@@ -1,2 +1,0 @@
-﻿-- Placeholder for initial schema migration.
--- Table definitions, RLS policies, and trigger functions go here per API_CONTRACT.md.

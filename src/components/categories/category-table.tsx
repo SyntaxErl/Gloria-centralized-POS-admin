@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import {
   Table,
@@ -8,18 +8,17 @@ import {
   TableHeaderCell,
   TableCell,
 } from "@/components/ui/table";
-import { ArchiveBranchButton } from "@/components/branches/archive-branch-button";
+import { ArchiveCategoryButton } from "@/components/categories/archive-category-button";
 
-type Branch = {
+type Category = {
   id: string;
   name: string;
-  address: string | null;
   is_active: boolean;
 };
 
-export function BranchTable({ branches }: { branches: Branch[] }) {
-  if (branches.length === 0) {
-    return <p className="text-sm text-slate-500">No active branches.</p>;
+export function CategoryTable({ categories }: { categories: Category[] }) {
+  if (categories.length === 0) {
+    return <p className="text-sm text-slate-500">No active categories.</p>;
   }
 
   return (
@@ -27,32 +26,26 @@ export function BranchTable({ branches }: { branches: Branch[] }) {
       <TableHead>
         <tr>
           <TableHeaderCell>Name</TableHeaderCell>
-          <TableHeaderCell className="hidden sm:table-cell">
-            Address
-          </TableHeaderCell>
           <TableHeaderCell>Status</TableHeaderCell>
           <TableHeaderCell>Actions</TableHeaderCell>
         </tr>
       </TableHead>
       <TableBody>
-        {branches.map((branch) => (
-          <TableRow key={branch.id}>
-            <TableCell>{branch.name}</TableCell>
-            <TableCell className="hidden sm:table-cell">
-              {branch.address ?? "—"}
-            </TableCell>
+        {categories.map((category) => (
+          <TableRow key={category.id}>
+            <TableCell>{category.name}</TableCell>
             <TableCell>
               <Badge variant="success">Active</Badge>
             </TableCell>
             <TableCell>
               <div className="flex flex-wrap items-center gap-2">
                 <Link
-                  href={`/branches/${branch.id}`}
+                  href={`/categories/${category.id}`}
                   className="text-sm text-primary hover:underline"
                 >
                   Edit
                 </Link>
-                <ArchiveBranchButton branchId={branch.id} branchName={branch.name} />
+                <ArchiveCategoryButton categoryId={category.id} categoryName={category.name} />
               </div>
             </TableCell>
           </TableRow>
